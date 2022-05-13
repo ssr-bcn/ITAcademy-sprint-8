@@ -101,16 +101,15 @@ const useStarship = id => {
  * Por defecto se recupera la información disponible en Local Storage
  * para evitar llamadas continuas a la API.
  * 
- * La información guardada en Local Storage, no obstante, tiene una caducidad
- * de 5 minutos (harcodeada en el hook useLocalStorage, pero se podría
- * cambiar el comportamiento y pasar el valor como argumento)
+ * A la información guardada en Local Storage se le asigna una caducidad
+ * de 5 minutos para este ejercicio
  * 
  * @returns {array} ¿Cómo se documentaría?
  */
 const useStarshipsEndPoint = () => {
   const [asking, setAsking] = useState(false);
   const [error, setError] = useState('');
-  const [shipsList, setShipsList] = useLocalStorage( 'ships', ships);
+  const [shipsList, setShipsList] = useLocalStorage( 'ships', ships, 5);
   const [shipsToRender, setShipsToRender] = useState(ships);
   const [response, status, isPending, setUrl] = useFetch(null);
 

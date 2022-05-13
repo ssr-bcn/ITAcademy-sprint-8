@@ -1,8 +1,11 @@
-import BrowserConfig from './application/routes';
+import BrowserConfig from './application/routes/routes';
+import { UserProvider } from './application/provider';
 
 const App = () => {
   return (
-    <BrowserConfig />
+    <UserProvider>
+      <BrowserConfig />
+    </UserProvider>
   );
 }
 

@@ -10,6 +10,28 @@ const StyledUser = styled.div`
   font-weight: bold;
   letter-space: 2px;
   color: rgb(153, 153, 153);
+
+  & button {
+    cursor: pointer;
+    width: 100%;
+    border: 0;
+    background: none;
+    font-weight: bold;
+    letter-space: 2px;
+    }
+
+  & a, & button {
+    color: rgb(153, 153, 153);
+    text-decoration: none;
+
+    &:hover {
+      color: #ddd;
+    }
+  }
+
+  & span {
+    margin: 0 0.5rem;
+  }
 `;
 
 export default StyledUser;
