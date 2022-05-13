@@ -1,4 +1,5 @@
 import Header from '../components/Header/Header';
+import List from '../components/List/List';
 
 const Ships = () => {
   return (
@@ -6,7 +7,7 @@ const Ships = () => {
       <Header />
       <main>
         <section className="container">
-          <h1>Ships</h1>
+          <List />
         </section>
       </main>
     </>

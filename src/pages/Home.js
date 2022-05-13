@@ -1,4 +1,5 @@
 import Header from '../components/Header/Header';
+import Welcome from '../components/Welcome/Welcome';
 
 const Home = () => {
   return (
@@ -6,7 +7,7 @@ const Home = () => {
       <Header />
       <main>
         <section className="container">
-          <h1>Home</h1>
+          <Welcome />
         </section>
       </main>
     </>

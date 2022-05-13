@@ -3,10 +3,12 @@ import styled from 'styled-components';
 const StyledLoader = styled.div`
   align-self: center;
   position: relative;
+  width: 40px;
+  height: 40px;
 
   img {
-    width: 40px;
-    height: 40px;
+    width: 100%;
+    height: 100%;
   }
 
   &::before {
@@ -17,7 +19,7 @@ const StyledLoader = styled.div`
     width: 54px;
     height: 54px;
     border: 3px solid #fff;
-    border-top-color: #151515;
+    border-top-color: ${props => props.bg ?? '#151515'};
     border-radius: 50%;
     animation: loading 3.5s linear infinite;
   }
@@ -30,8 +32,8 @@ const StyledLoader = styled.div`
     width: 68px;
     height: 68px;
     border: 3px solid #fff;
-    border-top-color: #151515;
-    border-right-color: #151515;
+    border-top-color: ${props => props.bg ?? '#151515'};
+    border-right-color: ${props => props.bg ?? '#151515'};
     border-radius: 50%;
     animation: loadingLeft 2s linear infinite;
   }

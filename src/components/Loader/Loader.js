@@ -1,9 +1,9 @@
 import StyledLoader from "./Loader.styles";
 import LoaderImg from '../../assets/img/loader-empire.png';
 
-const Loader = () => {
+const Loader = ({ bg}) => {
   return (
-    <StyledLoader>
+    <StyledLoader bg={bg}>
       <img src={LoaderImg} alt="" />
     </StyledLoader>
   );
