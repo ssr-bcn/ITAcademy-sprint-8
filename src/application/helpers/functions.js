@@ -1,3 +1,5 @@
+// Validaciones básicas
+
 const validateUsername = (string, localData) => {
   let error = false;
   let msg = '';

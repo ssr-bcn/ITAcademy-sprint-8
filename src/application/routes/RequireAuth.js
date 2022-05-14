@@ -6,9 +6,11 @@ const RequireAuth = ({ children }) => {
   const [user] = useContext(UserContext);
   const location = useLocation();
 
-  return user && user.logged
-    ? children
-    : <Navigate to="/login" state={{ from: location }} />;
+  return (
+    user && user.logged
+      ? children
+      : <Navigate to="/login" state={{ from: location }} />
+  );
 }
 
 const AvoidIfLogged = ({ children }) => {
@@ -16,9 +18,11 @@ const AvoidIfLogged = ({ children }) => {
   const location = useLocation();
   const to = location.state ? location.state.from.pathname : '/';
 
-  return user && user.logged
-    ? <Navigate to={to} state={{ from: location }} />
-    : children;
+  return (
+    user && user.logged
+      ? <Navigate to={to} state={{ from: location }} />
+      : children
+  );
 }
 
-export { RequireAuth, AvoidIfLogged};
+export { RequireAuth, AvoidIfLogged };

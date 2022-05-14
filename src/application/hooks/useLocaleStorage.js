@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+// Basado en https://www.youtube.com/watch?v=uutiLsX5kFE
 const useLocalStorage = (key, initialValue, expiration = null) => {
   const [storedValue, setStoredValue] = useState( () => {
     try {
@@ -12,10 +13,10 @@ const useLocalStorage = (key, initialValue, expiration = null) => {
            * tiene una antigüedad superior a 5 minutos, se deshecha.
            */
           const now = Date.now();
-          const expiration = 5 * 60 * 1000;
+          const expirationMilliseconds = expiration * 60 * 1000;
           const parsed = JSON.parse(item);
 
-          if (now - parsed.saved > expiration) {
+          if (now - parsed.saved > expirationMilliseconds) {
             item = null;
             window.localStorage.removeItem(key);
             return initialValue;

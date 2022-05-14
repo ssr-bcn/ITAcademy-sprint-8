@@ -34,7 +34,7 @@ const useFetch = () => {
 
   useEffect( () => {
     if (componentIsMounted.current) {
-      if ( !url || !String(url) ) {
+      if ( !url || typeof url !== 'string' ) {
         const err = { error: false, msg: 'No se ha facilitado una URL válida' };
         setError(err);
       } else {
