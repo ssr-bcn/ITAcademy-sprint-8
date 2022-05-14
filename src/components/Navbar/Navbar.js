@@ -7,8 +7,8 @@ const Navbar = () => {
   return (
     <StyledNavbar className="container">
       <Link to="/">
-        <Logo height="88" align="center" />
-        </Link>
+        <Logo />
+      </Link>
       <User />
     </StyledNavbar>
   );

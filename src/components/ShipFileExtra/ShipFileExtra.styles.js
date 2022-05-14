@@ -8,24 +8,29 @@ const StyledShipFileExtra = styled.div`
     text-transform: uppercase;
   }
 
-  & > p > a {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: #9e4f60;
-    text-decoration: none;
+  & > p {
+    margin: 0.3rem 0 0;
 
-    &::after {
-      content: ', ';
-    }
+    & > a {
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: #9e4f60;
+      text-decoration: none;
 
-    &:last-child {
       &::after {
-        content: '';
+        content: ', ';
+        color: #aaa;
       }
-    }
 
-    &:hover {
-      color: rgb(183, 104, 121);
+      &:last-child {
+        &::after {
+          content: '';
+        }
+      }
+
+      &:hover {
+        color: rgb(183, 104, 121);
+      }
     }
   }
 `;

@@ -4,24 +4,32 @@ const StyledModal = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   z-index: 99;
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  right: 0;
+  height: ${document.documentElement.getBoundingClientRect().height}px;
   background-color: rgba(0, 0, 0, 0.7);
 
   & > div {
+    position: relative;
     display: flex;
     gap: 1.5rem;
     position: relative;
-    padding: 1.5rem 1.5rem 1rem;
+    padding: 1.5rem 1.5rem 1.2rem;
     width: 90%;
     max-width: 600px;
+    max-height: 90%;
     border-radius: 0.5rem;
     background-color: #181818;
     color: #aaa;
+    overflow-y: auto;
+
+    @media only screen and (max-width: 600px) {
+      flex-wrap: wrap;
+      align-items: center;
+    }
 
     & button {
       position: absolute;
@@ -41,6 +49,10 @@ const StyledModal = styled.div`
 
     & > figure, > article {
       width: 50%;
+
+      @media only screen and (max-width: 600px) {
+        flex: 1 0 100%;
+      }
     }
 
     & > figure {
@@ -48,6 +60,7 @@ const StyledModal = styled.div`
       padding: 0;
 
       & img {
+        border-radius: 0.5rem;
         width: 100%;
       }
     }
@@ -67,7 +80,11 @@ const StyledModal = styled.div`
 
         & li {
           padding: 0.5rem 0;
-          width: 100%;
+          flex: 1 0 100%;
+
+          @media only screen and (max-width: 600px) {
+            flex: 1 0 50%;
+          }
 
           & span {
             font-weight: bold;

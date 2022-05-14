@@ -1,9 +1,9 @@
 import StyledLogo from "./Logo.styles";
 import LogoSrc from '../../assets/img/sw_logo.png';
 
-const Logo = ({ height }) => {
+const Logo = () => {
   return (
-    <StyledLogo src={LogoSrc} height={height} alt="Star Wars" />
+    <StyledLogo src={LogoSrc} alt="Star Wars" />
   );
 }
 

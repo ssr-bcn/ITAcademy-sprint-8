@@ -8,7 +8,7 @@ const StyledShipFile = styled.article`
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  border-radius: 0 1rem 1rem 0;
+  border-radius: 1rem;
   overflow: hidden;
   width: 100%;
   color: #aaa;
@@ -23,6 +23,11 @@ const StyledShipFile = styled.article`
     overflow: hidden;
     width: 50%;
 
+    @media only screen and (max-width: 768px) {
+      border-radius: 1rem 1rem 0 0;
+      width: 100%;
+    }
+  
     & img {
       width: 100%;
       height: 100%;
@@ -39,6 +44,13 @@ const StyledShipFile = styled.article`
     background-size: 7px;
     background-color: #282727;
 
+    @media only screen and (max-width: 768px) {
+      border-top: 2px solid #9e4f60;
+      border-left: 0;
+      border-radius: 0 0 1rem 1rem;
+      width: 100%;
+    }
+    
     &::before,  &::after {
       position: absolute;
       display: block;
@@ -47,6 +59,10 @@ const StyledShipFile = styled.article`
       width: 2%;
       border-radius: 1rem;
       background-color: #282727;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
     }
 
     &::before {
@@ -84,13 +100,18 @@ const StyledShipFile = styled.article`
     & ul {
       display: flex;
       flex-wrap: wrap;
+      gap-row: 1rem;
       list-style: none;
       padding: 0;
 
       & li {
-        padding: 0.5rem 0;
-        width: 50%;
+        padding: 0.2rem 0;
+        flex: 1 0 50%;
 
+        @media only screen and (max-width: 600px) {
+          flex: 1 0 100%;
+        }
+  
         & span {
           font-weight: bold;
         }
@@ -100,12 +121,18 @@ const StyledShipFile = styled.article`
 
   & > div.extra {
     display: flex;
+    flex-wrap: wrap;
     margin: 1.5rem 0 0;
     width: 100%;
 
     & > div {
-      width: 50%;
+      flex: 1 0 50%;
       border-left: 1px solid rgba(255,255,255,0.1);
+
+      @media only screen and (max-width: 600px) {
+        flex: 1 0 100%;
+        border: 0;
+      }
 
       &:first-child {
         border: 0;

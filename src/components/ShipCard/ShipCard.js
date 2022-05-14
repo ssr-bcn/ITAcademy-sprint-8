@@ -7,7 +7,7 @@ const StarshipCard = ({ ship }) => {
   const img = useStarshipsIMGEndPoint(ship.id);
 
   return (
-    <Link to={'/starship/' + ship.id} style={{flexGrow: 1, width: '40%', textDecoration: 'none'}}>
+    <Link to={'/starship/' + ship.id} className="linkCard">
       <StyledShipCard>
         <div>
           <header>{ship.name}</header>

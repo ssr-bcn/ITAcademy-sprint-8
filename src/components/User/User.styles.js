@@ -14,6 +14,7 @@ const StyledUser = styled.div`
   color: rgb(153, 153, 153);
 
   & p {
+    margin: 0;
     width: 100%;
     text-align: right;
   }
