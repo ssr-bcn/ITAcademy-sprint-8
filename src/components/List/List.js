@@ -30,7 +30,7 @@ const List = () => {
     <StyledList>
       {
         shipsToRender.results.length > 0 ?
-          shipsToRender.results.map( ship => <ShipCard key={ship.id} ship={ship} />)
+          shipsToRender.results.map( ship => <ShipCard key={ship.url} ship={ship} />)
           : null
       }
       {

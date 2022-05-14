@@ -134,7 +134,7 @@ const useStarshipsEndPoint = () => {
       if (!status.error) {
         response.json().then( data => {
           const results = data.results.map( ship => {
-            const id = getShipID(ship.url);
+            const id = getItemID(ship.url);
             return { ...ship, id};
           });
 
@@ -184,18 +184,19 @@ const useStarshipsEndPoint = () => {
 }
 
 /**
- * Recupera el ID de una nave a partir de una URL
+ * Recupera el ID de un registro a partir de una URL
  * @param {string} url 
  * @returns {integer|boolean}
  */
-const getShipID = url => {
-  const regex = new RegExp(/^https:\/\/swapi\.dev\/api\/starships\/(\d+)\/$/, 'i');
+const getItemID = url => {
+
+  const regex = new RegExp(/^https:\/\/swapi\.dev\/api\/(.*)\/(\d+)\/$/, 'i');
 
   if ( !url || !String(url) || !regex.test(url) ) return false;
 
   const matches = url.match(regex);
-  
-  return matches ? matches[1] : false;
+
+  return matches ? matches[2] : false;
 }
 
 /**
@@ -231,4 +232,46 @@ const useStarshipsIMGEndPoint = id => {
   return img;
 }
 
-export { useStarshipsEndPoint, useStarshipsIMGEndPoint, useStarship };
+const useExtraEndPoint = urls => {
+  const [data, setData] = useState([]);
+  const [error, setError] = useState('');
+
+  useEffect( () => {
+    (async () => {
+      try {
+        if ( !urls || !Array.isArray(urls) ) throw Error('El argumento facilitado a la función no es correcto');
+
+        const requests = [];
+        urls.forEach( url => {
+          requests.push( fetch(url) );
+        });
+
+        const responses = await Promise.all(requests);
+        const errors = responses.filter( response => !response.ok );
+
+        if ( errors.length > 0 ) {
+          throw errors.map( response => Error(response.statusText) );
+        }
+
+        const json = responses.map( response => response.json() );
+        const data = await Promise.all(json);
+
+        data.forEach( movie => {
+          const id = getItemID(movie.url);
+          movie.id = id;
+          return movie;
+        })
+
+        setData(data.sort( (a, b) => a.episode_id - b.episode_id) );
+
+      } catch(errors) {
+        setError(errors);
+      }
+    })();
+    // eslint-disable-next-line
+  }, [urls]);
+
+  return [data, error];
+}
+
+export { useStarshipsEndPoint, useStarshipsIMGEndPoint, useStarship, useExtraEndPoint };

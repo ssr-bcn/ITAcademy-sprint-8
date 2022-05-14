@@ -6,19 +6,27 @@ const StyledUser = styled.div`
   bottom: 0;
   right: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
   align-items: center;
   font-weight: bold;
   letter-space: 2px;
   color: rgb(153, 153, 153);
 
+  & p {
+    width: 100%;
+    text-align: right;
+  }
+
   & button {
     cursor: pointer;
-    width: 100%;
+    padding: 0;
     border: 0;
     background: none;
     font-weight: bold;
     letter-space: 2px;
-    }
+    text-align: right;
+  }
 
   & a, & button {
     color: rgb(153, 153, 153);

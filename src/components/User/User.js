@@ -25,7 +25,10 @@ const User = () => {
     <StyledUser>
       {
         user.username && 
+          <div>
+          <p>Hi, {user.username}</p>
           <button onClick={handleClick}>LOG OUT</button>
+          </div>
       }
       {
         !user.username &&

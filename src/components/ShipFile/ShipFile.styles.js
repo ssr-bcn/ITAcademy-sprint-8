@@ -5,25 +5,13 @@ import bgDetail from '../../assets/img/decal.png';
 const StyledShipFile = styled.article`
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   border-radius: 0 1rem 1rem 0;
   overflow: hidden;
   width: 100%;
   color: #aaa;
-
-  &::after {
-    position: absolute;
-    display: block;
-    content: '';
-    right: 4%;
-    bottom: 0;
-    width: 47px;
-    height: 47px;
-    background: url(${bgDetail}) top left no-repeat;
-    opacity: 0.06;
-  }
 
   &.error::after {
     display: none;
@@ -42,7 +30,7 @@ const StyledShipFile = styled.article`
     }
   }
 
-  & > div {
+  & > div.card {
     position: relative;
     padding: 1.5rem;
     border-left: 2px solid #9e4f60;
@@ -74,6 +62,20 @@ const StyledShipFile = styled.article`
       height: 42%;
     }
 
+    & > div {
+      &::after {
+        position: absolute;
+        display: block;
+        content: '';
+        right: 4%;
+        bottom: 0;
+        width: 47px;
+        height: 47px;
+        background: url(${bgDetail}) top left no-repeat;
+        opacity: 0.06;
+      }
+    }
+
     & h2 {
       margin: 0;
       text-transform: uppercase;
@@ -92,6 +94,25 @@ const StyledShipFile = styled.article`
         & span {
           font-weight: bold;
         }
+      }
+    }
+  }
+
+  & > div.extra {
+    display: flex;
+    margin: 1.5rem 0 0;
+    width: 100%;
+
+    & > div {
+      width: 50%;
+      border-left: 1px solid rgba(255,255,255,0.1);
+
+      &:first-child {
+        border: 0;
+      }
+
+      &:last-child {
+        width: 49%;
       }
     }
   }
