@@ -13,6 +13,8 @@ const StyledModal = styled.div`
   background-color: rgba(0, 0, 0, 0.7);
 
   & > div {
+    display: flex;
+    gap: 1.5rem;
     position: relative;
     padding: 1.5rem 1.5rem 1rem;
     width: 90%;
@@ -37,24 +39,39 @@ const StyledModal = styled.div`
       }
     }
 
-    & h3 {
-      margin: 0 0 0.5rem;
-      text-transform: uppercase;
+    & > figure, > article {
+      width: 50%;
     }
 
-    & ul {
-      display: flex;
-      flex-wrap: wrap;
-      list-style: none;
-      margin: 0.5rem 0 0;
+    & > figure {
+      margin: 0;
       padding: 0;
 
-      & li {
-        padding: 0.5rem 0;
-        width: 50%;
+      & img {
+        width: 100%;
+      }
+    }
 
-        & span {
-          font-weight: bold;
+    & > article {
+      & h3 {
+        margin: 0 0 0.5rem;
+        text-transform: uppercase;
+      }
+
+      & ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0.5rem 0 0;
+        padding: 0;
+
+        & li {
+          padding: 0.5rem 0;
+          width: 100%;
+
+          & span {
+            font-weight: bold;
+          }
         }
       }
     }

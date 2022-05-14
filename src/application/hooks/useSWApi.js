@@ -178,7 +178,7 @@ const useStarshipsEndPoint = () => {
 
   if ( !Boolean(url) || !String(url) || !regex.test(url) ) return false;
 
-  const matches = url.match(regex);
+  const matches = url.match(regex); 
 
   return matches ? +matches[1] : false;
 }
@@ -209,14 +209,15 @@ const getItemID = url => {
  * @param {integer} id 
  * @returns {string}
  */
-const useStarshipsIMGEndPoint = id => {
+const useStarshipsIMGEndPoint = (id, section) => {
   const fallback = `${endpointShipsIMG}big-placeholder.jpg`;
+  const sec = section && typeof section === 'string' ? section : 'starships';
   const [response, status, isPending, setUrl] = useFetch(null);
   const [img, setImg] = useState(false);
 
   useEffect( () => {
     if ( id && Number.isInteger(+id) ) {
-      const testUrl = `${endpointShipsIMG}starships/${id}.jpg`;
+      const testUrl = `${endpointShipsIMG}${sec}/${id}.jpg`;
       setUrl(testUrl);
     }
     // eslint-disable-next-line
