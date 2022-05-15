@@ -58,7 +58,6 @@ const StyledShipCard = styled.article`
     background-size: 7px;
 
     @media only screen and (max-width: 768px) {
-      min-height: 75px;
       border-right: 0;
       border-top: 2px solid #9e4f60;
     } 

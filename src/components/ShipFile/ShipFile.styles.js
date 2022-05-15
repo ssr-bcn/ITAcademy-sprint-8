@@ -55,8 +55,8 @@ const StyledShipFile = styled.article`
       position: absolute;
       display: block;
       content: '';
-      right: -1%;
-      width: 2%;
+      right: -2%;
+      width: 4%;
       border-radius: 1rem;
       background-color: #282727;
 

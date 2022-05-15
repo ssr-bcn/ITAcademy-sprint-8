@@ -15,7 +15,7 @@ const StarshipCard = ({ ship }) => {
         </div>
         <figure>
           {
-            img && <img src={img} alt="" />
+            img && <img src={img} alt={img.endsWith('big-placeholder.jpg') ? 'No picture there is' : ship.name} />
           }
           {
             !img && <Loader bg="#282727" />

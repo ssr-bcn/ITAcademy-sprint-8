@@ -14,7 +14,7 @@ const ShipFile = ({ id }) => {
           <>
             <figure>
               {
-                img && <img src={img} alt="" />
+                img && <img src={img} alt={img.endsWith('big-placeholder.jpg') ? 'No picture there is' : ship.name} />
               }
               {
                 !img && 
