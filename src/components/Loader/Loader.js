@@ -4,7 +4,7 @@ import LoaderImg from '../../assets/img/loader-empire.png';
 const Loader = ({ bg}) => {
   return (
     <StyledLoader bg={bg}>
-      <img src={LoaderImg} alt="" />
+      <img src={LoaderImg} alt="Loading" />
     </StyledLoader>
   );
 }
